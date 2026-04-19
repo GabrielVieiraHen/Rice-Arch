@@ -1,0 +1,77 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+@import "~/.cache/wal/rofi-wallpaper.rasi"
+
+configuration {
+    show-icons: false;
+}
+
+* {
+    background-color: transparent;
+    text-color: @foreground;
+    font: "Inter 14";
+}
+
+window {
+    width: 600px;
+    border-radius: 15px;
+    background-color: rgba(26, 27, 38, 0.90);
+    border: 2px;
+    border-color: @active-background;
+}
+
+mainbox {
+    children: [ inputbar, listview, message ];
+    spacing: 15px;
+    padding: 20px;
+}
+
+inputbar {
+    background-image: @current-wallpaper;
+    border-radius: 15px;
+    padding: 80px 20px 20px 20px;
+    children: [ prompt ];
+}
+
+prompt {
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-color: white;
+    font: "Inter Bold 14";
+}
+
+listview {
+    columns: 4;
+    lines: 1;
+    spacing: 15px;
+    layout: vertical;
+}
+
+element {
+    padding: 30px 10px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.05);
+}
+
+element selected {
+    background-color: @active-background;
+    text-color: @background;
+}
+
+element-text {
+    font: "Symbols Nerd Font 30";
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: inherit;
+}
+
+message {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.05);
+}
+
+textbox {
+    text-color: @foreground;
+    horizontal-align: 0.5;
+}

@@ -1,0 +1,102 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Premium Dark Calendar Tooltip */
+tooltip {
+    background-color: rgba(15, 15, 20, 0.95);
+    border: 2px solid @color3;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+tooltip label {
+    color: @foreground;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 15px;
+    padding: 20px;
+    font-weight: normal;
+}
+
+@keyframes blink {
+    to {
+        background-color: @color3;
+        color: @background;
+    }
+}
+
+/* Waybar Modules - Fully Transparent */
+#image,
+#window,
+#workspaces,
+#custom-cava,
+#custom-user,
+#clock,
+#battery,
+#custom-power {
+    background-color: transparent;
+    color: @foreground;
+    border: none;
+    border-radius: 0;
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#window {
+    color: @color7;
+}
+
+#workspaces button {
+    color: @color4;
+    padding: 0 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+    color: @color3;
+}
+
+#custom-cava {
+    color: @color3;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+#clock {
+    color: @color5;
+}
+
+#battery {
+    color: @color6;
+}
+
+#battery.charging, #battery.plugged {
+    color: @color2;
+}
+
+#battery.critical:not(.charging) {
+    color: @color3;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-user {
+    color: @color4;
+}
+
+#custom-power {
+    color: @color3;
+    font-size: 18px;
+}

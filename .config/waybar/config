@@ -1,0 +1,88 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 42,
+    "margin-top": 10,
+    "margin-left": 15,
+    "margin-right": 15,
+    "spacing": 5,
+    "modules-left": [
+        "image",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/cava",
+        "battery",
+        "custom/user",
+        "custom/power"
+    ],
+    "image": {
+        "path": "/home/gabriel/Imagens/logos/logo.png",
+        "size": 32,
+        "on-click": "rofi -show drun -modi drun,filebrowser,run,window",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "on-click": "activate"
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 35
+    },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "tooltip": false
+    },
+    "custom/cava": {
+        "exec": "~/.config/hypr/scripts/cava.sh",
+        "format": "{}",
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{icon}  {time}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "custom/user": {
+        "format": "  {}",
+        "exec": "echo $USER",
+        "interval": 86400,
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}

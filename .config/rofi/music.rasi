@@ -1,0 +1,80 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    show-icons: false;
+}
+
+* {
+    background-color: transparent;
+    text-color: @foreground;
+    font: "Inter Bold 14";
+}
+
+window {
+    width: 700px;
+    location: center;
+    border-radius: 20px;
+    background-color: rgba(15, 15, 20, 0.95);
+    border: 2px;
+    border-color: @active-background;
+}
+
+mainbox {
+    orientation: horizontal;
+    children: [ inputbar, rightbox ];
+    padding: 0px;
+}
+
+inputbar {
+    width: 250px;
+    background-image: url("/tmp/rofi_music/cover.png", width);
+    padding: 125px 0px 125px 0px;
+    children: [ dummy ];
+}
+
+rightbox {
+    orientation: vertical;
+    children: [ message, listview ];
+    padding: 40px;
+    spacing: 20px;
+}
+
+message {
+    background-color: transparent;
+    border: 0px;
+    padding: 0px;
+}
+
+textbox {
+    font: "Inter Bold 18";
+    text-color: white;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+}
+
+listview {
+    layout: vertical;
+    columns: 3;
+    lines: 1;
+    spacing: 15px;
+    padding: 10px;
+    horizontal-align: 0.5;
+}
+
+element {
+    padding: 15px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+element selected {
+    background-color: @active-background;
+    text-color: @background;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    font: "JetBrainsMono Nerd Font 28";
+}

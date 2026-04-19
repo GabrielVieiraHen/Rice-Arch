@@ -1,0 +1,91 @@
+configuration {
+    modi: "drun,run,filebrowser,window";
+    show-icons: true;
+    display-drun: " Apps";
+    display-run: " Run";
+    display-filebrowser: " Files";
+    display-window: " Windows";
+    drun-display-format: "{name}";
+    window-format: "{w} · {c} · {t}";
+    font: "Inter 12";
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    background-color: transparent;
+    text-color: @foreground;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    width: 600px;
+    border-radius: 15px;
+    background-color: rgba(26, 27, 38, 0.90);
+    border: 2px;
+    border-color: @active-background;
+}
+
+mainbox {
+    padding: 20px;
+    spacing: 15px;
+}
+
+inputbar {
+    background-color: @background;
+    border-radius: 10px;
+    padding: 12px;
+    children: [ prompt, entry ];
+    border: 1px;
+    border-color: @active-background;
+}
+
+prompt {
+    text-color: @active-background;
+    font: "Inter Bold 12";
+    padding: 0 10px 0 0;
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: @urgent-background;
+}
+
+listview {
+    columns: 2;
+    lines: 8;
+    spacing: 10px;
+    scrollbar: false;
+}
+
+element {
+    padding: 10px;
+    border-radius: 8px;
+    spacing: 10px;
+}
+
+element normal.normal {
+    background-color: transparent;
+}
+
+element alternate.normal {
+    background-color: transparent;
+}
+
+element selected.normal {
+    background-color: @active-background;
+    text-color: @background;
+}
+
+element-icon {
+    size: 24px;
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}
