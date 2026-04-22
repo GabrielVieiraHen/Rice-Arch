@@ -11,10 +11,16 @@ Um setup minimalista, ultra-rápido e agressivo para Arch Linux, focado em perfo
 - **Cores:** [Pywal](https://github.com/dylanaraps/pywal) (Sincronia total entre wallpaper, janelas e apps)
 - **Aesthetic:** `tty-clock` e `lavat` integrados com a paleta dinâmica.
   
-## 🛠️ Comandos Customizados isso foi no shell msm tem o cava tbm
-Adicionados ao meu `.bashrc`:
-- `clock`: Relógio grande e centralizado que muda de cor com o wallpaper.
+## 🛠️ Comandos e Atalhos Customizados
+- `SUPER + SHIFT + F`: Força qualquer jogo a entrar em Fullscreen Nativo (Latência zero, sem tela piscando).
+- `SUPER + CTRL + SHIFT + Setas`: Move a janela atual para outra área de trabalho.
+- `clock`: Relógio grande e centralizado no terminal.
 - `lava`: Luminária de lava com efeitos de gravidade e cores dinâmicas.
+
+## 🎮 Extreme Game Mode & Energia
+A Waybar possui dois botões exclusivos para controle total do hardware:
+- **Seletor de Energia (Raio/Folha):** Alterna instantaneamente a CPU entre Performance, Balanced e Power-Saver.
+- **Game Mode ():** Um interruptor que desliga TODAS as transparências, blur, animações e arredondamentos. O sistema trava as cores em **Verde Neon e Preto** e engata o Feral GameMode globalmente para dedicar 100% da máquina ao jogo.
 
 ## 🎨 maioria eu editei, o wlogout peguei de um github pub
 O sistema gera automaticamente a paleta de cores baseada no wallpaper atual:
