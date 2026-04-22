@@ -17,7 +17,8 @@
     "modules-right": [
         "custom/cava",
         "battery",
-        "custom/user",
+        "power-profiles-daemon",
+        "custom/gamemode",
         "custom/power"
     ],
     "image": {
@@ -74,15 +75,27 @@
             ""
         ]
     },
-    "custom/user": {
-        "format": "  {}",
-        "exec": "echo $USER",
-        "interval": 86400,
-        "tooltip": false
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
     },
     "custom/power": {
         "format": "⏻",
         "on-click": "wlogout",
         "tooltip": false
+    },
+    "custom/gamemode": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/hypr/scripts/gamemode_status.sh",
+        "on-click": "~/.config/hypr/scripts/gamemode.sh",
+        "signal": 8
     }
 }

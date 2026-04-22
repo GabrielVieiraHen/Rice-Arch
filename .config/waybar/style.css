@@ -39,7 +39,8 @@ tooltip label {
 #window,
 #workspaces,
 #custom-cava,
-#custom-user,
+#power-profiles-daemon,
+#custom-gamemode,
 #clock,
 #battery,
 #custom-power {
@@ -92,11 +93,28 @@ tooltip label {
     animation-direction: alternate;
 }
 
-#custom-user {
+#power-profiles-daemon {
     color: @color4;
 }
 
 #custom-power {
     color: @color3;
     font-size: 18px;
+}
+
+#custom-gamemode {
+    font-size: 18px;
+}
+
+#custom-gamemode.normal {
+    color: @foreground;
+}
+
+#custom-gamemode.gaming {
+    color: @color3;
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
