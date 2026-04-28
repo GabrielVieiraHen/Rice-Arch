@@ -5,23 +5,30 @@ Foquei-me num design minimalista, com vidro (glassmorphism), cores que se adapta
 
 ### 👀 Previews
 
-Aqui estão algumas prints do ambiente:
+Aqui estão os detalhes do ambiente e como cada parte funciona:
 
-**Popups de Sistema (Quickshell):**
-
+#### 📡 Menu de Internet Rápido
+Com apenas um clique na Waybar, tens acesso a um painel moderno com efeito de vidro para te ligares ao Wi-Fi em segundos.
 <p align="center">
-  <img src="screenshots/wifi.png" width="30%" />
-  <img src="screenshots/bateria.png" width="30%" />
-  <img src="screenshots/audio.png" width="30%" />
+  <img src="screenshots/wifi.png" width="80%" />
 </p>
 
-**Demonstração do Terminal e Animações (com som):**
+#### 🔋 Gestão de Energia e Performance
+Tens o controlo total do PC. Podes gerir o consumo ou ativar a máxima performance com um clique.
+<p align="center">
+  <img src="screenshots/bateria.png" width="80%" />
+</p>
 
-Aqui podes ver o terminal em ação (abre o vídeo para ouvir o som personalizado ao abrir e fechar o Kitty):
+#### 🔊 Controlo de Áudio
+Sliders precisos e visuais para alterar o volume ou silenciar o sistema.
+<p align="center">
+  <img src="screenshots/audio.png" width="80%" />
+</p>
 
-https://github.com/GabrielVieiraHen/Rice-Arch/assets/screenshots/video.mp4
+#### 🎬 O Terminal Perfeito (Com Som)
+Terminal Kitty a puxar as cores precisas do Wallpaper, animações, Fastfetch super leve e um detalhe brutal: sons personalizados a abrir e fechar a janela! (Assiste ao vídeo abaixo com o som ligado)
 
-*(Se o vídeo acima não carregar, clica [aqui](screenshots/video.mp4) para o veres diretamente).*
+https://github.com/GabrielVieiraHen/Rice-Arch/raw/main/screenshots/video.mp4
 
 ---
 
