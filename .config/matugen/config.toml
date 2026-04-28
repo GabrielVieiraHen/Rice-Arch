@@ -1,0 +1,21 @@
+[config.reload_apps]
+waybar = true
+
+[templates.waybar]
+input_path = "templates/waybar-colors.css"
+output_path = "~/.config/waybar/colors.css"
+
+[templates.quickshell]
+input_path = "templates/qs-colors.json"
+output_path = "/tmp/qs_colors.json"
+post_hook = "quickshell -p ~/.config/hypr/scripts/quickshell ipc call topbar forceReload"
+
+[templates.kitty]
+input_path = "templates/kitty-colors.conf"
+output_path = "~/.config/kitty/matugen.conf"
+post_hook = "killall -SIGUSR1 kitty"
+
+[templates.cava]
+input_path = "templates/cava-colors.conf"
+output_path = "~/.config/cava/config"
+post_hook = "killall -SIGUSR1 cava"

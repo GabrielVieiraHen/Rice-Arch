@@ -1,0 +1,28 @@
+@define-color base {{colors.surface.default.hex}};
+@define-color mantle {{colors.surface_container_lowest.default.hex}};
+@define-color crust {{colors.surface_container_low.default.hex}};
+
+@define-color text {{colors.on_surface.default.hex}};
+@define-color subtext0 {{colors.on_surface_variant.default.hex}};
+@define-color subtext1 {{colors.outline.default.hex}};
+
+@define-color surface0 {{colors.surface_container.default.hex}};
+@define-color surface1 {{colors.surface_container_high.default.hex}};
+@define-color surface2 {{colors.surface_container_highest.default.hex}};
+
+@define-color overlay0 {{colors.on_surface_variant.default.hex}};
+@define-color overlay1 {{colors.outline_variant.default.hex}};
+@define-color overlay2 {{colors.inverse_surface.default.hex}};
+
+@define-color blue {{colors.primary.default.hex}};
+@define-color lavender {{colors.secondary.default.hex}};
+@define-color sapphire {{colors.tertiary.default.hex}};
+@define-color sky {{colors.primary_fixed.default.hex}};
+@define-color teal {{colors.secondary_fixed.default.hex}};
+@define-color green {{colors.tertiary_fixed.default.hex}};
+@define-color yellow {{colors.primary_fixed_dim.default.hex}};
+@define-color peach {{colors.secondary_fixed_dim.default.hex}};
+@define-color maroon {{colors.tertiary_fixed_dim.default.hex}};
+@define-color red {{colors.error.default.hex}};
+@define-color mauve {{colors.error_container.default.hex}};
+@define-color pink {{colors.on_error_container.default.hex}};

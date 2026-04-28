@@ -1,91 +1,98 @@
 configuration {
-    modi: "drun,run,filebrowser,window";
     show-icons: true;
-    display-drun: " Apps";
-    display-run: " Run";
-    display-filebrowser: " Files";
-    display-window: " Windows";
+    icon-theme: "Papirus-Dark";
     drun-display-format: "{name}";
-    window-format: "{w} · {c} · {t}";
-    font: "Inter 12";
+    display-drun: "Apps";
+    modi: "drun";
 }
 
-@import "~/.cache/wal/colors-rofi-dark.rasi"
-
 * {
-    background-color: transparent;
-    text-color: @foreground;
-    margin: 0;
-    padding: 0;
-    spacing: 0;
+    font: "Inter 12";
+    bg: rgba(15, 15, 25, 0.75);
+    bg-alt: rgba(30, 30, 50, 0.6);
+    fg: #efdee0;
+    fg-dim: #9f8c8f;
+    accent: #ffb1c0;
+    border-col: rgba(255, 255, 255, 0.08);
+    selected: rgba(255, 177, 192, 0.2);
 }
 
 window {
-    width: 600px;
-    border-radius: 15px;
-    background-color: rgba(26, 27, 38, 0.90);
-    border: 2px;
-    border-color: @active-background;
+    width: 650px;
+    height: 480px;
+    location: south;
+    anchor: south;
+    y-offset: -40px;
+    background-color: @bg;
+    border: 1px solid;
+    border-color: @border-col;
+    border-radius: 20px;
 }
 
 mainbox {
+    children: [ inputbar, listview ];
+    spacing: 16px;
     padding: 20px;
-    spacing: 15px;
-}
-
-inputbar {
-    background-color: @background;
-    border-radius: 10px;
-    padding: 12px;
-    children: [ prompt, entry ];
-    border: 1px;
-    border-color: @active-background;
-}
-
-prompt {
-    text-color: @active-background;
-    font: "Inter Bold 12";
-    padding: 0 10px 0 0;
-}
-
-entry {
-    placeholder: "Search...";
-    placeholder-color: @urgent-background;
-}
-
-listview {
-    columns: 2;
-    lines: 8;
-    spacing: 10px;
-    scrollbar: false;
-}
-
-element {
-    padding: 10px;
-    border-radius: 8px;
-    spacing: 10px;
-}
-
-element normal.normal {
     background-color: transparent;
 }
 
+inputbar {
+    children: [ entry ];
+    background-color: @bg-alt;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid;
+    border-color: @border-col;
+}
+
+entry {
+    placeholder: "Search apps...";
+    placeholder-color: @fg-dim;
+    text-color: @fg;
+    background-color: transparent;
+    cursor: text;
+}
+
+listview {
+    columns: 5;
+    lines: 3;
+    spacing: 12px;
+    fixed-columns: true;
+    layout: vertical;
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical;
+    padding: 14px 8px;
+    border-radius: 14px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+element normal.normal,
 element alternate.normal {
     background-color: transparent;
 }
 
 element selected.normal {
-    background-color: @active-background;
-    text-color: @background;
+    background-color: @selected;
+    border: 1px solid;
+    border-color: @accent;
 }
 
 element-icon {
-    size: 24px;
+    size: 48px;
+    horizontal-align: 0.5;
     background-color: transparent;
+    cursor: inherit;
 }
 
 element-text {
-    vertical-align: 0.5;
-    background-color: transparent;
-    text-color: inherit;
+    /* Hide app names — icon-only grid */
+    enabled: false;
+}
+
+element-text selected {
+    text-color: @accent;
 }

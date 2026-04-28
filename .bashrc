@@ -7,94 +7,29 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias ll='ls -la --color=auto'
-alias la='ls -A --color=auto'
-alias cls='clear'
+# MacOS minimal prompt
+PS1='\[\e[34m\] \[\e[32m\]\u \[\e[33m\]\W \[\e[36m\]❯ \[\e[0m\]'
 
-# Import pywal colors for shell
-(cat ~/.cache/wal/sequences &)
-
-# ---- Beautiful Minimal Prompt ----
-# Dynamically reads pywal colors
-_get_wal_color() {
-    local idx=$1
-    sed -n "$((idx+1))p" ~/.cache/wal/colors 2>/dev/null
-}
-
-_build_prompt() {
-    local exit_code=$?
-    local C0='\[\e[0m\]'        # Reset
-    
-    # Read pywal accent colors
-    local accent=$(_get_wal_color 3)   # Most vibrant (red for this wallpaper)
-    local accent2=$(_get_wal_color 5)  # Secondary
-    local accent3=$(_get_wal_color 6)  # Tertiary
-    local fg=$(_get_wal_color 7)       # Foreground
-    
-    # Fallbacks
-    [[ -z "$accent" ]] && accent="#D51A25"
-    [[ -z "$accent2" ]] && accent2="#976366"
-    [[ -z "$accent3" ]] && accent3="#B76A8A"
-    [[ -z "$fg" ]] && fg="#cfc7c7"
-    
-    # Convert hex to ANSI 24-bit color
-    _hex_fg() {
-        local hex="${1#\#}"
-        printf '\[\e[38;2;%d;%d;%dm\]' "0x${hex:0:2}" "0x${hex:2:2}" "0x${hex:4:2}"
-    }
-    
-    local CA=$(_hex_fg "$accent")
-    local CA2=$(_hex_fg "$accent2")
-    local CA3=$(_hex_fg "$accent3")
-    local CFG=$(_hex_fg "$fg")
-    
-    # Error indicator
-    local indicator="❯"
-    if [[ $exit_code -ne 0 ]]; then
-        indicator="${CA}✘${C0}"
+# Load fastfetch with a random image from kitty terminal folder
+if command -v fastfetch &> /dev/null; then
+    IMG_DIR="$HOME/.config/kitty/images-terminal"
+    if [ -d "$IMG_DIR" ]; then
+        IMG=$(find "$IMG_DIR" -type f | shuf -n 1)
+        if [ -n "$IMG" ]; then
+            fastfetch --logo "$IMG" --logo-type kitty --logo-width 25
+        else
+            fastfetch
+        fi
+    else
+        fastfetch
     fi
-    
-    # Directory (just basename for clean look)
-    local dir="${PWD/#$HOME/~}"
-    
-    # Git branch (lightweight)
-    local git_branch=""
-    if git rev-parse --is-inside-work-tree &>/dev/null 2>&1; then
-        git_branch=" ${CA2} $(git branch --show-current 2>/dev/null)${C0}"
+fi
+# Terminal Sound Effect (Open/Close)
+# Check if running in Kitty
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    if [ -z "$KITTY_SOUND_OPEN" ]; then
+        (pw-play ~/.config/kitty/sound-terminal.wav >/dev/null 2>&1 &)
+        export KITTY_SOUND_OPEN=1
     fi
-    
-    PS1="\n${CA2}╭─${C0} ${CA}${C0}${CFG} \u${C0} ${CA3}in${C0} ${CA}${dir}${C0}${git_branch}\n${CA2}╰─${C0} ${CA}${indicator}${C0} "
-}
-
-PROMPT_COMMAND=_build_prompt
-
-# Kitty font fix
-export TERM=xterm-256color
-
-# ---- Aesthetic Apps (Auto-Sync) ----
-clock() {
-    # Force use color 3 (accent)
-    tty-clock -c -B -C 3 -t "$@"
-}
-
-lava() {
-    # Radius reduced to 4 for smaller, better looking balls
-    lavat -c red -r 3 -R 2 -G "$@"
-}
-
-lava() {
-    # Use color 3 from palette
-    lavat -c magenta -r 8 -R 2 -G "$@"
-}
-
-lava() {
-    (cat ~/.cache/wal/sequences &)
-    lavat -c red -r 8 -R 2 -G "$@"
-}
-
-lava() {
-    # Read hex colors from pywal for truecolor gradient
-    local c1=$(sed -n '2p' ~/.cache/wal/colors | tr -d '#')
-    local c2=$(sed -n '4p' ~/.cache/wal/colors | tr -d '#')
-    lavat -g -c "$c1" -k "$c2" -r 8 -R 2 -G "$@"
-}
+    trap '(pw-play ~/.config/kitty/sound-terminal.wav >/dev/null 2>&1 &)' EXIT
+fi

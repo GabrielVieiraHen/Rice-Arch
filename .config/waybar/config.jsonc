@@ -1,0 +1,115 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 40,
+    "margin-top": 8,
+    "margin-left": 150,
+    "margin-right": 150,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "battery"
+    ],
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 40,
+        "rewrite": {
+            "^(.*) — Mozilla Firefox$": "󰈹  $1",
+            "^(.*) - kitty$": "󰄛  $1",
+            "^(.*) - Thunar$": "  $1",
+            "^$": "Desktop"
+        }
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
+    },
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun -modi drun",
+        "tooltip": false
+    },
+    "custom/gamemode": {
+        "format": "{}",
+        "tooltip-format": "Toggle Gamemode",
+        "on-click": "gamemoded -t && sleep 0.1 && (gamemoded -s | grep -q 'is active' && notify-send -i input-gaming 'Gamemode' 'Ativado 󰊴' || notify-send -i input-gaming 'Gamemode' 'Desativado 󰊴'); pkill -SIGRTMIN+8 waybar",
+        "exec": "gamemoded -s 2>/dev/null | grep -q 'is active' && echo '{\"text\": \"󰊴\", \"class\": \"active\"}' || echo '{\"text\": \"󰊴\", \"class\": \"inactive\"}'",
+        "interval": 2,
+        "signal": 8,
+        "return-type": "json"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "echo 'toggle:volume' > /tmp/qs_widget_state"
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "echo 'toggle:network' > /tmp/qs_widget_state"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "echo 'toggle:network:bt' > /tmp/qs_widget_state"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "on-click": "echo 'toggle:battery' > /tmp/qs_widget_state"
+    }
+}

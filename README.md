@@ -1,50 +1,58 @@
-# bora ve aonde vai chegar esse rice
+# Rice-Arch 🍚
 
-Um setup minimalista, ultra-rápido e agressivo para Arch Linux, focado em performance para jogos e estética Dark/Neon.
+Bem-vindo ao meu setup pessoal do Arch Linux. 
+Foquei-me num design minimalista, com vidro (glassmorphism), cores que se adaptam automaticamente ao wallpaper e controlos nativos fluidos. Tudo foi pensado para ser rápido, leve e agradável de usar.
 
-![Setup Preview](./preview.png)
+### 👀 Previews
 
-## Destaques peguei as fonte com ia
-- **Window Manager:** [Hyprland](https://hyprland.org/) (Bordas Neon Animadas)
-- **Barra:** [Waybar](https://github.com/Alexays/Waybar) (Design flutuante e minimalista)
-- **Terminal:** [Kitty](https://sw.kovidgoyal.net/kitty/) (Configurado para baixa latência em jogos)
-- **Cores:** [Pywal](https://github.com/dylanaraps/pywal) (Sincronia total entre wallpaper, janelas e apps)
-- **Aesthetic:** `tty-clock` e `lavat` integrados com a paleta dinâmica.
-  
-## 🛠️ Comandos e Atalhos Customizados
-- `SUPER + SHIFT + F`: Força qualquer jogo a entrar em Fullscreen Nativo (Latência zero, sem tela piscando).
-- `SUPER + CTRL + SHIFT + Setas`: Move a janela atual para outra área de trabalho.
-- `clock`: Relógio grande e centralizado no terminal.
-- `lava`: Luminária de lava com efeitos de gravidade e cores dinâmicas.
+Aqui estão algumas prints do ambiente:
 
-## 🎮 Extreme Game Mode & Energia
-A Waybar possui dois botões exclusivos para controle total do hardware:
-- **Seletor de Energia (Raio/Folha):** Alterna instantaneamente a CPU entre Performance, Balanced e Power-Saver.
-- **Game Mode ():** Um interruptor que desliga TODAS as transparências, blur, animações e arredondamentos. O sistema trava as cores em **Verde Neon e Preto** e engata o Feral GameMode globalmente para dedicar 100% da máquina ao jogo.
+**Popups de Sistema (Quickshell):**
 
-## 🎨 maioria eu editei, o wlogout peguei de um github pub
-O sistema gera automaticamente a paleta de cores baseada no wallpaper atual:
-- **Janelas:** Bordas com gradiente neon (Red/Pink).
-- **Cava:** Visualizador de áudio com gradiente sincronizado.
-- **Waybar:** Totalmente transparente para foco total no wallpaper.
+<p align="center">
+  <img src="screenshots/wifi.png" width="30%" />
+  <img src="screenshots/bateria.png" width="30%" />
+  <img src="screenshots/audio.png" width="30%" />
+</p>
 
-## 📦 Instalação
+**Demonstração do Terminal e Animações (com som):**
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/GabrielVieiraHen/Rice-Arch.git
-   ```
+Aqui podes ver o terminal em ação (abre o vídeo para ouvir o som personalizado ao abrir e fechar o Kitty):
 
-2. Aplique as configurações (faça backup das suas antes!):
-   ```bash
-   cp -r .config/* ~/.config/
-   cp .bashrc ~/
-   ```
+https://github.com/GabrielVieiraHen/Rice-Arch/assets/screenshots/video.mp4
 
-3. Recarregue o sistema:
-   ```bash
-   hyprctl reload
-   ```
+*(Se o vídeo acima não carregar, clica [aqui](screenshots/video.mp4) para o veres diretamente).*
 
 ---
-*Desenvolvido com foco em estética minimalista e performance máxima.*
+
+### ✨ Features
+- **Gestor de Janelas:** Hyprland (rápido e fluido)
+- **Barra:** Waybar (transparente e responsiva)
+- **Painéis de Controlo:** Quickshell (estilo nativo com sliders de volume, menus de rede e bateria)
+- **Cores Dinâmicas:** Matugen (todas as cores do sistema, do terminal ao CAVA, mudam consoante o teu wallpaper automaticamente)
+- **Terminal:** Kitty (com Fastfetch minimalista e um som subtil ao abrir/fechar)
+- **Visualizador de Áudio:** CAVA e Lavat (com as cores extraídas pela paleta do wallpaper)
+
+---
+
+### 🚀 Instalação Rápida
+
+Se quiseres usar este setup no teu Arch, criei um script que faz quase tudo por ti. Ele instala as dependências necessárias e copia os ficheiros.
+
+1. Abre o teu terminal e clona o repositório:
+```bash
+git clone https://github.com/GabrielVieiraHen/Rice-Arch.git
+cd Rice-Arch
+```
+
+2. Executa o instalador mágico:
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+> **Aviso:** O script faz backup da tua pasta `~/.config` atual para `~/.config-backup`, mas confirma sempre os teus ficheiros importantes antes de correr!
+
+---
+
+Sente-te à vontade para explorar os dotfiles, modificar ao teu gosto ou usar partes disto no teu próprio setup!

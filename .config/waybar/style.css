@@ -1,91 +1,90 @@
-@import "../../.cache/wal/colors-waybar.css";
+@import "colors.css";
 
 * {
     border: none;
+    border-radius: 0;
     font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-weight: 600;
     font-size: 14px;
-    font-weight: bold;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: transparent;
-}
-
-/* Premium Dark Calendar Tooltip */
-tooltip {
-    background-color: rgba(15, 15, 20, 0.95);
-    border: 2px solid @color3;
+    background-color: alpha(@base, 0.85);
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: @text;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-tooltip label {
-    color: @foreground;
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 15px;
-    padding: 20px;
-    font-weight: normal;
-}
-
-@keyframes blink {
-    to {
-        background-color: @color3;
-        color: @background;
-    }
-}
-
-/* Waybar Modules - Fully Transparent */
-#image,
-#window,
-#workspaces,
-#custom-cava,
-#power-profiles-daemon,
-#custom-gamemode,
-#clock,
-#battery,
-#custom-power {
-    background-color: transparent;
-    color: @foreground;
-    border: none;
-    border-radius: 0;
-    padding: 0 10px;
-    margin: 0 5px;
-}
-
-#window {
-    color: @color7;
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
 #workspaces button {
-    color: @color4;
-    padding: 0 6px;
-    transition: all 0.2s ease-in-out;
+    padding: 0 4px;
+    margin: 0 2px;
+    color: alpha(#ffffff, 0.5);
+    background: transparent;
+}
+
+#workspaces button:hover {
+    background: alpha(#ffffff, 0.15);
+    color: #ffffff;
+    border-radius: 10px;
 }
 
 #workspaces button.active {
-    color: @color3;
+    color: #ffffff;
 }
 
-#custom-cava {
-    color: @color3;
-    font-family: monospace;
-    font-size: 16px;
+#workspaces button.urgent {
+    color: @red;
+}
+
+#clock,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#tray,
+#custom-gamemode,
+#custom-launcher,
+#window {
+    padding: 0 12px;
+    margin: 4px 0;
+    color: @text;
+    border-radius: 15px;
+    background-color: transparent;
+}
+
+#custom-launcher {
+    color: #ffffff;
+    font-size: 18px;
+    padding-right: 14px;
+}
+
+#window {
+    color: #ffffff;
+    font-weight: 500;
 }
 
 #clock {
-    color: @color5;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 #battery {
-    color: @color6;
+    color: #ffffff;
 }
 
 #battery.charging, #battery.plugged {
-    color: @color2;
+    color: #ffffff;
 }
 
 #battery.critical:not(.charging) {
-    color: @color3;
+    background-color: @red;
+    color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -93,28 +92,37 @@ tooltip label {
     animation-direction: alternate;
 }
 
-#power-profiles-daemon {
-    color: @color4;
+@keyframes blink {
+    to {
+        background-color: alpha(@red, 0.5);
+        color: #ffffff;
+    }
 }
 
-#custom-power {
-    color: @color3;
-    font-size: 18px;
+#network {
+    color: #ffffff;
+}
+
+#bluetooth {
+    color: #ffffff;
+}
+
+#pulseaudio {
+    color: #ffffff;
+}
+
+#pulseaudio.muted {
+    color: alpha(#ffffff, 0.5);
 }
 
 #custom-gamemode {
-    font-size: 18px;
+    color: #ffffff;
 }
 
-#custom-gamemode.normal {
-    color: @foreground;
+#custom-gamemode.active {
+    color: @red;
 }
 
-#custom-gamemode.gaming {
-    color: @color3;
-    animation-name: blink;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+#tray {
+    margin-right: 8px;
 }

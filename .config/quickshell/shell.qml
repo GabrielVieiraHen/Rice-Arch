@@ -1,0 +1,1 @@
+/home/gabriel/.config/hypr/scripts/quickshell/Main.qml

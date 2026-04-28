@@ -1,0 +1,73 @@
+configuration {
+    show-icons: true;
+    drun-display-format: "{name}";
+}
+
+window {
+    width: 60%;
+    height: 60%;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(20, 20, 30, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 15px;
+    background-color: transparent;
+}
+
+inputbar {
+    children: [ entry ];
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+entry {
+    placeholder: "Procurar Wallpapers...";
+    text-color: white;
+    background-color: transparent;
+}
+
+listview {
+    columns: 4;
+    lines: 3;
+    spacing: 20px;
+    fixed-columns: true;
+    layout: vertical;
+    border: 0px;
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: transparent;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+}
+
+element selected.normal,
+element selected {
+    background-color: rgba(137, 180, 250, 0.3);
+    border: 2px solid rgba(137, 180, 250, 0.8);
+}
+
+element-icon {
+    size: 10em;
+    horizontal-align: 0.5;
+    background-color: transparent;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    text-color: white;
+    background-color: transparent;
+    padding: 5px;
+}
