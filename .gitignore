@@ -1,0 +1,40 @@
+# ─── Dados privados / sessões ──────────────────────────────────────────
+.config/vesktop/sessionData/
+.config/vesktop/Singleton*
+.config/vesktop/CrashpadMetrics*
+.config/vesktop/Crashpad/
+.config/vesktop/state.json
+.config/mozilla/
+.config/obs-studio/
+.config/Antigravity/
+
+# ─── Dados dinâmicos / binários do sistema ─────────────────────────────
+.config/dconf/
+.config/pulse/
+.config/go/
+.config/blender/
+.config/input-remapper-2/
+.config/btop/
+.config/Mousepad/
+.config/Thunar/
+.config/xfce4/
+.config/yay/
+.config/nwg-displays/
+.config/rog/
+
+# ─── Ficheiros de apps com config automática ───────────────────────────
+.config/QtProject.conf
+.config/pavucontrol.ini
+.config/mimeapps.list
+
+# ─── Ficheiros de jogos / saves ────────────────────────────────────────
+.config/StardewValley/
+.config/SLSsteam/
+
+# ─── Ficheiros temporários / build ─────────────────────────────────────
+*.pyc
+__pycache__/
+.DS_Store
+*.swp
+*.swo
+*~

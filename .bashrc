@@ -33,3 +33,4 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
     fi
     trap '(pw-play ~/.config/kitty/sound-terminal.wav >/dev/null 2>&1 &)' EXIT
 fi
+
